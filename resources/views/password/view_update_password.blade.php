@@ -5,31 +5,28 @@
 
 		<tr>
 			<th>Tên</th>
-			<td>{{ $teacher->full_name }}</td>
+			<td>{{ Session::get('first_name') }} {{ Session::get('last_name') }}</td>
 		</tr>
 		<tr>
 			<th>Date</th>
-			<td>{{ $teacher->date }}</td>
+			<td>{{ Session::get('date') }}</td>
 		</tr>
 		<tr>
-			<th>Tuổi</th>
-			<td>
-				
-				{{ $age = date_diff(date_create($teacher->date), date_create('now'))->y}}
-			</td>
+			<th>Dien thoai</th>
+			<td>{{ Session::get('phone') }}</td>
 		</tr>
 		<tr>
 			<th>Email</th>
-			<td>{{ $teacher->email }}</td>
+			<td>{{ Session::get('email') }}</td>
 		</tr>
 		<tr>
 			<th>Address</th>
-			<td>{{ $teacher->address }}</td>
+			<td>{{ Session::get('address') }}</td>
 		</tr>
 		<tr>
 			<th>Password</th>
 			<td>
-				<button id="edit-post" data-id="{{ $teacher->id }}" class="btn btn-success"> Update</button>
+				<a href="{{ route('password.view_change_password',['id' =>  Session::get('id') ]) }}">Sua</a>
 			</td>
 		</tr>
 		

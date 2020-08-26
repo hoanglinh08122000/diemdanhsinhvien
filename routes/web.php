@@ -175,8 +175,37 @@ route::group(['middleware' => 'CheckLogin'], function () {
 	route::group(["prefix" => "password", "as" => "password."], function () use ($controller) {
 		
 		route::get("view_update_password", "$controller@view_update_password")->name("view_update_password");
-		
+		route::get("view_change_password/{id}", "$controller@view_change_password")->name("view_change_password");
+		route::post("process_change_password/{id}", "$controller@process_change_password")->name("process_change_password");
 		
 	});
 
+});
+
+
+Route::get('tk', function(){
+	DB::table('admin')->insert([
+		'first_name' => 'Ha',
+		'last_name'  => 'Bang',
+		'date' => '2000-02-02',
+		'level' => '1',
+		'gender' => '1',
+		'email' => 'abc@gmail.com',
+		'phone' => '012456789',
+		'address' => 'abc',
+		'password' => bcrypt('123456'),
+	]);
+});
+Route::get('abc', function(){
+	DB::table('teacher')->insert([
+		'first_name' => 'abc',
+		'last_name'  => 'def',
+		'date' => '2005-02-02',
+		'level' => '1',
+		'gender' => '1',
+		'email' => '123@gmail.com',
+		'phone' => '012456789',
+		'address' => 'def',
+		'password' => bcrypt('12345678'),
+	]);
 });

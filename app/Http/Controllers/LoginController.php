@@ -42,9 +42,15 @@ class LoginController extends Controller {
 
 		if (isset($admin) && Hash::check($rq->password, $admin->password)) {
 			Session::put('id', $admin->id);
-			Session::put('last_name', $admin->first_name);
+			Session::put('first_name', $admin->first_name);
 			Session::put('last_name', $admin->last_name);
 			Session::put('level', $admin->level);
+			Session::put('phone', $admin->phone);
+			Session::put('date', $admin->date);
+			Session::put('address', $admin->address);
+			Session::put('gender', $admin->gender);
+			Session::put('email', $admin->email);
+			Session::put('password', $admin->password);
 			return redirect()->route('index');
 
 		} else {
@@ -64,6 +70,12 @@ class LoginController extends Controller {
 			Session::put('first_name', $teacher->first_name);
 			Session::put('last_name', $teacher->last_name);
 			Session::put('level', $teacher->level);
+			Session::put('date', $teacher->date);
+			Session::put('phone', $teacher->phone);
+			Session::put('address', $teacher->address);
+			Session::put('gender', $teacher->gender);
+			Session::put('email', $teacher->email);
+			Session::put('password', $teacher->password);
 
 			return redirect()->route('index');
 
