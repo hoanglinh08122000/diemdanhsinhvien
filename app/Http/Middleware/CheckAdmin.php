@@ -22,4 +22,4 @@ class CheckAdmin
             return redirect()-> route('login')->with('erron','Bạn phải đăng nhập ');
         }
     }
-}
+}   

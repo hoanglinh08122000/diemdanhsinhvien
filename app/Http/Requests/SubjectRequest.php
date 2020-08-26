@@ -24,8 +24,8 @@ class SubjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' =>  'required|regex:/^([a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/i',
-            'time' =>  'required|numeric',
+            'name' =>  'required|regex:/^([a-zA-Z0-9ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/i',
+            'time' =>  'required|regex:[0-9]',
             'status' => 'required',
         ];
     }
@@ -34,7 +34,7 @@ class SubjectRequest extends FormRequest
         return [
             'required' => 'Vui lòng điền :attribute',
             'name.regex' => ':attribute phải điền bằng chữ cái',
-            'time.numeric' => ':attribute phải điền bằng số',
+            'time.regex' => ':attribute phải điền bằng số',
         ];
     }
     public function attributes()

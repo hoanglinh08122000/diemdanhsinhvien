@@ -126,6 +126,7 @@ route::group(['middleware' => 'CheckLogin'], function () {
 			route::post("process_update_class/{id}","$controller@process_update_class")->name("process_update_class");
 			route::get("assignment_class_subject", "$controller@assignment_class_subject")->name("assignment_class_subject");
 			route::post("process_assignment_class_subject", "$controller@process_assignment_class_subject")->name("process_assignment_class_subject");
+			route::post("process_insert_class_under_srudent", "$controller@process_insert_class_under_srudent")->name("process_insert_class_under_srudent");
 		});
 	});
 

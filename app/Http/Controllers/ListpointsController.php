@@ -16,6 +16,8 @@ use DB;
 class ListpointsController extends Controller
 {
     public function view_listpoints(){
+    	$id_teacher=Session::get('id');
+    	
 		$courses=Course::get();
 		$disciplines=Discipline::get();
 		$classs=Classs::get();
@@ -28,6 +30,7 @@ class ListpointsController extends Controller
 			'classs'=> $classs,
 			'subjects' => $subjects,
 			'teachers' => $teachers,
+			'id_teacher' => $id_teacher,
 		]);
 	}
 

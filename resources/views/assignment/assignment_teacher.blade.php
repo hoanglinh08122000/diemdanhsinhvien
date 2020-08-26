@@ -46,23 +46,6 @@
 				</div>
 
 			</div>
-			{{-- <div class="row form-group">
-				<div class="col col-md-3"><label for="select" class=" form-control-label">Môn</label></div>
-				<div class="col-12 col-md-9">
-					<select name="id_subject" class="form-control" id="select_subject">
-						
-								<option disabled selected> Chọn môn </option>}
-								
-								@foreach ($subjects  as $subject)
-								<option value="{{ $subject->id }}">
-									{{ $subject->name }}
-								</option>
-								@endforeach
-					
-					</select>
-				</div>
-
-			</div> --}}
 			
 
 			<div class="row form-group">

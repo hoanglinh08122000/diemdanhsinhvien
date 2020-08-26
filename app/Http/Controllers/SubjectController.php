@@ -67,20 +67,21 @@ public function view_update_subject($id){
  ]);
 
 }
-public function process_update_subject(SubjectRequest $rq,$id){
+public function process_update_subject(Request $rq,$id){
    $name    = $rq->name;
    $time   = $rq->time;
    $id_discipline=$rq->id_discipline;
    $id_teacher=$rq->id_teacher;
+  
    DB::table('subject')->where('id',$id)->update([
      'name'=> $name,
      'time'=> $time,
      'id_discipline'=> $id_discipline,
      'id_teacher' => $id_teacher,
-
+   
 
  ]);
-	    // SinhVienLop::find($id)->update($rq->all());
+	  
 
    return redirect()->route('subject.show_subject');
 }
