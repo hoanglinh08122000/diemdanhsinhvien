@@ -3,6 +3,8 @@
 
 @section('content')
 
+
+
 <div class="card"  >
 	<div class="card-body card-block" >
 		<form action="{{ route('listpoints.process_post') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -65,7 +67,7 @@
 					<tr>
 						<th>ID</th>
 						<th>Tên sinh viên</th>
-						<th>Số buổi học</th>
+						<th>Số buổi nghỉ</th>
 						<th>Đi</th>
 						<th>Nghỉ</th>
 						<th>Muộn</th>
@@ -153,13 +155,13 @@
 	<script>
 		jQuery(document).ready(function($) {
 			$("#select_discipline").change(function(){
-				var id = $(this).val();
+				var id_discipline = $(this).val();
 				$("#select_subject").html('');
 				$.ajax({
 					url: '{{ route('ajax.listpoint_subject') }}',
 					type: 'GET',
 					dataType: 'json',
-					data: {id : id},
+					data: {id_discipline : id_discipline,id_teacher:$('#id_teacher').val()},
 				})
 				.done(function(response) {
 					$("#select_subject").append(`

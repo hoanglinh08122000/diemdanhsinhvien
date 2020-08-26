@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Students;
 use App\Imports\StudentImport;
+use App\Imports\StudentsExcelClassImport;
 use Excel;
 use DataTables;
 use App\Http\Requests\StudentRequest;

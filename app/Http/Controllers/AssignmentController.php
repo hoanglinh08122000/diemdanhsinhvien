@@ -42,7 +42,7 @@ class AssignmentController extends Controller
 	public function process_assignment_teacher(Request $rq){
 		$input = $rq -> all();
 		
-		
+		// dd($input);
 		Assignment::create($input);	
 
     	return redirect()->route('assignment.show');
@@ -63,6 +63,7 @@ class AssignmentController extends Controller
 		]);
 		
 	}
+	
 
 
 }

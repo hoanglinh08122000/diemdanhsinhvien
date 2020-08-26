@@ -3,7 +3,7 @@
 
 	<div class="card"  >
 		<div class="card-header" >
-			<strong>Sua Môn học</strong>
+			<strong>Sửa Môn học</strong>
 		</div>
 		<div class="card-body card-block" >
 			<form action="{{ route('subject.process_update_subject',['id' => $subject->id]) }}" method="post" enctype="multipart/form-data" class="form-horizontal">

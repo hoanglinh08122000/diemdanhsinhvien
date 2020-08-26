@@ -11,6 +11,7 @@ use App\Models\Subject_teacher;
 use App\Models\Students;
 use App\Models\Listpoints;
 use DB;
+use Session;
 
 class AjaxController extends Controller
 {
@@ -21,7 +22,7 @@ class AjaxController extends Controller
                             ->where('id_course',$id_course) 
                             ->join('discipline','class.id_discipline' , 'discipline.id')
                             ->join('course','class.id_course' , 'course.id')
-                            ->select()
+                            ->select('class.id')
                             ->getFullName()
                             ->get();
                 
@@ -94,9 +95,17 @@ class AjaxController extends Controller
     }
 
     public function listpoint_subject(Request $rq){
-        $id = $rq->get('id');
-        $array_subject= Subject::where('id_discipline',$id)->get();
-
+        $id_teacher=Session::get('id');
+        $id_discipline = $rq->get('id_discipline');
+        $array_subject= Subject::where('id_discipline',$id_discipline)->get();
+         $array_subject=Subject::where('id_discipline',$id_discipline)
+                                ->where('subject_teacher.id_teacher',$id_teacher)
+                                ->join('discipline','subject.id_discipline','discipline.id')
+                                ->join('subject_teacher','subject_teacher.id_subject','subject.id')
+                                ->select('subject.id',
+                                         'subject.name',
+                                        )
+                                ->get();
         return $array_subject;
     }
     public function listpoint_class(Request $rq){
@@ -140,7 +149,7 @@ class AjaxController extends Controller
                         $value->status="nghi";
                     }
                     else{
-                        // quển k thể =0 đc nếu = không thì nó là 3 rồi
+                        
                         if($value->dem%3==1)
                         {
                             $so_du=0.3;
@@ -181,4 +190,5 @@ class AjaxController extends Controller
         return [$ajax_students,$subject->time];  
         
     }
+    
 }
