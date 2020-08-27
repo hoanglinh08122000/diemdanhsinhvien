@@ -18,7 +18,7 @@
 				{{$class->id}}
 			</td>
 			<td>
-				{{$class->full_name}} 
+				{{$class->name}} 
 			</td>
 			
 			<td>
@@ -43,5 +43,5 @@
 	</tbody>
 </table>
 	
-
+{{$array_list->appends(['search' => $search])->links()}}
 @endsection

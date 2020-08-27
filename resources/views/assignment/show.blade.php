@@ -28,7 +28,7 @@
 			 	
 			</td>
 			<td>
-				{{ $assignment->classs->full_name }}
+				{{ $assignment->classs->name }}
 			 	
 			</td>
 			

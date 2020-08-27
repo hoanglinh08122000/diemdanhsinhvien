@@ -60,7 +60,9 @@
 							</div>
 						</div>
 						<h4 class="mb-0">
-							<span class="count">{{ $dihoc }}</span>
+							<span class="count">{{  $dihoc_phantram  }}</span>%/100%</span>
+							<br>
+							<span class="count">{{ $dihoc }}</span>/<span class="count">{{ $all }}</span>
 						</h4>
 						<p class="text-light">Đi học </p>
 						<div class="chart-wrapper px-0" style="height:70px;" height="70" />
@@ -86,9 +88,11 @@
 						</div>
 					</div>
 					<h4 class="mb-0">
-						<span class="count">10468</span>
+						<span class="count">{{  $nghihoc_phantram  }}</span>%/100%</span>
+							<br>
+						<span class="count">{{  $nghihoc  }} </span>/<span class="count">{{ $all }}</span>
 					</h4>
-					<p class="text-light">Members online</p>
+					<p class="text-light">Nghỉ học</p>
 					<div class="chart-wrapper px-0" style="height:70px;" height="70" />
 					<canvas id="widgetChart2"></canvas>
 				</div>
@@ -112,9 +116,11 @@
 					</div>
 				</div>
 				<h4 class="mb-0">
-					<span class="count">10468</span>
+					<span class="count">{{  $nghihoc_phantram  }}</span>%/100%</span>
+							<br>
+					<span class="count">{{  $muonhoc  }} </span>/<span class="count">{{ $all }}</span>
 				</h4>
-				<p class="text-light">Members online</p>
+				<p class="text-light">Muộn học</p>
 			</div>
 			<div class="chart-wrapper px-0" style="height:70px;" height="70" />
 			<canvas id="widgetChart3"></canvas>
@@ -138,6 +144,8 @@
 				</div>
 			</div>
 			<h4 class="mb-0">
+				<span></span>\
+				<br>
 				<span class="count">10468</span>
 			</h4>
 			<p class="text-light">Members online</p>

@@ -43,6 +43,6 @@
 		<br>
 	</tbody>
 </table>
-	
+{{$array_list->appends(['search' => $search])->links()}}	
 
 @endsection

@@ -91,7 +91,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-view-list"></i>Phân công</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-table"></i><a href="{{ route('assignment.assignment_teacher') }}">Theo giáo viên</a></li>
-                        <li><i class="fa fa-table"></i><a href="{{ route('assignment.assignment_class') }}">Theo lớp</a></li>
+                        {{-- <li><i class="fa fa-table"></i><a href="{{ route('assignment.assignment_class') }}">Theo lớp</a></li> --}}
                         <li><i class="fa fa-table"></i><a href="{{ route('assignment.show') }}">Danh sách dạy</a></li>
                     </ul>
                     

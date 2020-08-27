@@ -4,7 +4,7 @@
 	<table class="table table-bordered">
 
 		<tr>
-			<th>Tên</th>
+			<th>Name</th>
 			<td>{{ Session::get('first_name') }} {{ Session::get('last_name') }}</td>
 		</tr>
 		<tr>
@@ -12,7 +12,7 @@
 			<td>{{ Session::get('date') }}</td>
 		</tr>
 		<tr>
-			<th>Dien thoai</th>
+			<th>Phone</th>
 			<td>{{ Session::get('phone') }}</td>
 		</tr>
 		<tr>
@@ -26,7 +26,10 @@
 		<tr>
 			<th>Password</th>
 			<td>
-				<a href="{{ route('password.view_change_password',['id' =>  Session::get('id') ]) }}">Sua</a>
+				<button class="btn btn-success">
+					<a href="{{ route('password.view_change_password',['id' =>  Session::get('id') ]) }}" style="color: white">Update</a>
+				</button>
+				
 			</td>
 		</tr>
 		

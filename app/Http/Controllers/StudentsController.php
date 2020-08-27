@@ -10,6 +10,7 @@ use App\Imports\StudentsExcelClassImport;
 use Excel;
 use DataTables;
 use App\Http\Requests\StudentRequest;
+use App\Exports\StudentsExport; 
 
 class StudentsController extends Controller
 {
@@ -52,6 +53,9 @@ class StudentsController extends Controller
 
 
 
+    }
+    public function export_excel(){
+        return Excel::download(new StudentsExport,'students.xlxs');
     }
     public function view_insert_students(){
     	return view('students.view_insert_students');

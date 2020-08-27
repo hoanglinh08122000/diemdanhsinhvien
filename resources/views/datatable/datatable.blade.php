@@ -2,6 +2,8 @@
 @extends('layouts.master')
 
 @section('content')
+  
+   <br>
     <table class="table table-bordered" id="users-table">
         <thead>
             <tr>

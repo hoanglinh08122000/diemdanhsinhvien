@@ -10,8 +10,10 @@ use App\Models\Course;
 use App\Models\Classs;
 use App\Models\Teacher;
 use App\Http\Requests\ClassRequest;
-use App\Imports\StudentsExcelClassImport;
+use App\Imports\StudentImportByCourse;
 use App\Models\Students;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 
 class ClassController extends Controller
@@ -131,8 +133,8 @@ class ClassController extends Controller
 		return redirect()->route('class.show_edit');
 	}
 	public function process_insert_class_under_srudent(Request $rq){
-		 Excel::import(new StudentImport, $rq->file('excel_student')->path());
-		$input=$rq->all();
-		dd($input);
+		Excel::import(new StudentImportByCourse, $rq->excel_student_class);
+		// $input=$rq->all();
+		return redirect()->route('class.index_class');
 	}
 }

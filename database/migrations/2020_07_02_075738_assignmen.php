@@ -16,8 +16,9 @@ class Assignmen extends Migration
         Schema::create('assignmen', function (Blueprint $table) {
             $table->integer('id_teacher')->unsigned();
             $table->integer('id_subject')->unsigned();
-            $table->primary([ 'id_teacher', 'id_subject' ]);
             $table->integer('id_class')->unsigned();
+            $table->primary([ 'id_class', 'id_subject' ]);
+            
             $table->foreign('id_class')->references('id')->on('class');
             $table->foreign('id_teacher')->references('id')->on('teacher');
             $table->foreign('id_subject')->references('id')->on('subject');

@@ -3,20 +3,28 @@
 namespace App\Imports;
 
 use App\Models\Students;
-use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\ToCollection;
 use Classs;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
+use Illuminate\Support\Collection;
 
-class StudentsExcelClassImport implements ToModel
+use Illuminate\Http\Request;
+
+class StudentsExcelClassImport implements ToCollection,WithHeadingRow
 {
     /**
     * @param array $row
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
-    public function model(array $row)
+    public function collection(Collection $rows, Request $rq)
     {
-        $array= $array_filter($row);
-        if (!empty($array)){
+        dd($rq->id_course);
+        // $rows = array_filter($rows);
+        // $number_student = count($rows);
+        // $array= $array_filter($row);
+        // if (!empty($array)){
             $array=[
                 'first_name' => $row['first_name'],
                 'last_name' => $row['last_name'],
@@ -28,7 +36,7 @@ class StudentsExcelClassImport implements ToModel
                // 'id_class' => Classs::firstOrCreate(['name_class'=>$row['name']])->id;
 
             ];
-            return new Students($array);
-        }
+        //     return new Students($array);
+        // }
     }
 }

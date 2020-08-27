@@ -16,18 +16,20 @@ class StudentImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {   
+        $row = array_filter($row);
+        if(!empty($row)){
+           return new Students([
+                'first_name' => $row['first_name'],
+                'last_name' => $row['last_name'],
+                'date' => date_format(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['date']),"Y/m/d"),
+                'address' => $row['address'],
+                'phone' => $row['phone'],
+                'email' => $row['email'],
+                'gender' => ($row['gender']=='nam') ? 1 : 0,
+                'id_class'=> $row['id_class'],
+            ]); 
+        }
         
-        return new Students([
-            'first_name' => $row['first_name'],
-            'last_name' => $row['last_name'],
-            'date' => date_format(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['date']),"Y/m/d"),
-            'address' => $row['address'],
-            'phone' => $row['phone'],
-            'email' => $row['email'],
-            'gender' => ($row['gender']=='nam') ? 1 : 0,
-            'id_class'=> $row['id_class'],
-
-
-        ]);
+           
     }
 }

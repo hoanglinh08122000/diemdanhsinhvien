@@ -6,9 +6,7 @@
 	Add	
 
 </a> --}}
- <button class="btn btn-info">
-       <a href=" {{ route('students.export_excel')  }}" style="color: white"> Xuất excel</a>
-   </button>
+ 
 <table class="table">
 	<tr>
 		<th >Id</th>
@@ -20,8 +18,6 @@
 		{{-- <th scope="col">Email</th> --}}
 		<th scope="col">User</th>
 		
-			<th></th>
-			<th></th>
 		
 		
 
@@ -31,7 +27,7 @@
 		<tbody>
 
 
-			@foreach ($array_list as $students)
+			@foreach ($array_students as $students)
 			<tr>
 				<th >
 					{{$students->id}}
@@ -68,25 +64,7 @@
 					{{$students->email}}
 				</td>
 				
-				<td>
-				<button   class="btn btn-danger btn-sm" > 
-					<i class="fa fa-ban"></i>
-					<a href="{{ route('students.delete',['id' => $students->id]) }}">
-					<span style="color: white">Delete</span>
-				</a></button>
 				
-				</td>
-
-				<td>
-					<button  class="btn btn-primary btn-sm">
-						<i class="fa fa-dot-circle-o"></i>
-						
-						<a href="{{ route('students.view_update_students',['id' => $students->id]) }}">
-						<span style="color: white">Update</span>
-					</a>
-					</button>
-					
-				</td>
 				
 				
 
@@ -94,10 +72,8 @@
 
 			@endforeach
 			<br>
-	{{-- <input type="search" placeholder="search..." name="search" value="{{ $search }}" style="float:right;border-radius: 10px;">
-	<button type="submit"></button> --}}
-
+	
 </tbody>
 </table>
-{{$array_list->appends(['search' => $search])->links()}}
+
 @endsection

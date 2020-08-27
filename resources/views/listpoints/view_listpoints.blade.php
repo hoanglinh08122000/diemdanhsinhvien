@@ -142,7 +142,7 @@
 
 						$("#select_class").append(`
 							<option value='${this.id}'>
-							${this.full_name_ajax}
+							${this.name}
 							</option>`)
 					})
 				})

@@ -24,7 +24,7 @@ class PasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'password'          => 'required|min:8',
+            'password'          => 'required',
             'new_password'      => 'required|min:8',
             'confirm_password'  => 'required|same:new_password'
         ];
@@ -33,7 +33,6 @@ class PasswordRequest extends FormRequest
     {
         return [
             'required'   => 'Vui lòng điền :attribute',
-            'password.min' => ':attribute tối thiểu phải có 8 ký tự',
             'new_password.min' => ':attribute tối thiểu phải có 8 ký tự',
             'confirm_password.same' => ':attribute không trùng khớp. Vui lòng xác minh lại mật khẩu',
         ];

@@ -39,6 +39,7 @@ route::group(['middleware' => 'CheckLogin'], function () {
 			route::get("delete/{id}", "$controller@delete")->name("delete");
 			route::get("view_update_students/{id}", "$controller@view_update_students")->name("view_update_students");
 			route::post("process_update_students/{id}", "$controller@process_update_students")->name("process_update_students");
+			route::get("export_excel", "$controller@export_excel")->name("export_excel");
 			
 		});
 
@@ -186,12 +187,12 @@ route::group(['middleware' => 'CheckLogin'], function () {
 
 Route::get('tk', function(){
 	DB::table('admin')->insert([
-		'first_name' => 'Ha',
-		'last_name'  => 'Bang',
-		'date' => '2000-02-02',
+		'first_name' => 'Hoang',
+		'last_name'  => 'Linh',
+		'date' => '2000-12-08',
 		'level' => '1',
 		'gender' => '1',
-		'email' => 'abc@gmail.com',
+		'email' => 'admin@gmail.com	',
 		'phone' => '012456789',
 		'address' => 'abc',
 		'password' => bcrypt('123456'),

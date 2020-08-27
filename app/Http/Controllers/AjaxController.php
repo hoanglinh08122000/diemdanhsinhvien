@@ -10,6 +10,7 @@ use App\Models\Classs;
 use App\Models\Subject_teacher;
 use App\Models\Students;
 use App\Models\Listpoints;
+use App\Models\Assignment;
 use DB;
 use Session;
 
@@ -22,8 +23,8 @@ class AjaxController extends Controller
                             ->where('id_course',$id_course) 
                             ->join('discipline','class.id_discipline' , 'discipline.id')
                             ->join('course','class.id_course' , 'course.id')
-                            ->select('class.id')
-                            ->getFullName()
+                            ->select('class.id','class.name')
+                           
                             ->get();
                 
         return $array_class;
@@ -46,14 +47,17 @@ class AjaxController extends Controller
        
     }
     public function listpoint(Request $rq){
+        $id_teacher=Session::get('id');
         $id_discipline = $rq->get('id_discipline');
         $id_course = $rq->get('id_course');
         $array_class = Classs::where('id_discipline',$id_discipline)
                             ->where('id_course',$id_course) 
+                            ->where('id_teacher',$id_teacher)
                             ->join('discipline','class.id_discipline' , 'discipline.id')
                             ->join('course','class.id_course' , 'course.id')
-                            ->select('class.id')
-                            ->getFullName()
+                            ->join('assignmen','assignmen.id_class','class.id')
+                            ->select('class.id','class.name')
+                            
                             ->get();
                 
         return $array_class;
@@ -97,15 +101,20 @@ class AjaxController extends Controller
     public function listpoint_subject(Request $rq){
         $id_teacher=Session::get('id');
         $id_discipline = $rq->get('id_discipline');
-        $array_subject= Subject::where('id_discipline',$id_discipline)->get();
-         $array_subject=Subject::where('id_discipline',$id_discipline)
-                                ->where('subject_teacher.id_teacher',$id_teacher)
-                                ->join('discipline','subject.id_discipline','discipline.id')
-                                ->join('subject_teacher','subject_teacher.id_subject','subject.id')
-                                ->select('subject.id',
-                                         'subject.name',
-                                        )
-                                ->get();
+        $array_subject= Subject::where('id_discipline',$id_discipline)
+                                    ->where('id_teacher',$id_teacher)
+                                    ->join('assignmen','subject.id','assignmen.id_subject')
+                                    ->select('subject.name','subject.time','subject.id')
+                                    ->distinct()
+                                    ->get();
+        // $array_subject=Subject::where('id_discipline',$id_discipline)
+        //                         ->where('subject_teacher.id_teacher',$id_teacher)
+        //                         ->join('discipline','subject.id_discipline','discipline.id')
+        //                         ->join('subject_teacher','subject_teacher.id_subject','subject.id')
+        //                         ->select('subject.id',
+        //                                  'subject.name',
+        //                                 )
+        //                         ->get();
         return $array_subject;
     }
     public function listpoint_class(Request $rq){
