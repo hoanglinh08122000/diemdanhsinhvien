@@ -74,10 +74,17 @@ class AjaxController extends Controller
     }
     public function subject_teacher(Request $rq){
         $id = $rq->get('id');
-        $array_subject_teacher= Subject_teacher::join('subject','subject_teacher.id_subject','subject.id')
-                                            ->where('id_teacher',$id)
+        // $array_subject_teacher= Subject_teacher::join('subject','subject_teacher.id_subject','subject.id')
+        //                                     ->where('id_teacher',$id)
                                            
-                                            ->get(['name','id']);                           
+        //                                     ->get(['name','id']);  
+        // $id_teacher=$rq->get('id_teacher');
+        $array_subject_teacher=Subject_teacher::where('subject_teacher.id_teacher',$id)
+                                            ->where('assignmen.id_teacher',null)
+                                            ->join('subject','subject.id','subject_teacher.id_subject')
+                                            ->leftJoin('assignmen','assignmen.id_subject','subject.id')
+                                            ->select('subject.name','subject.id')
+                                            ->get();                       
         return $array_subject_teacher;
     }
     public function assignment_class(Request $rq){
