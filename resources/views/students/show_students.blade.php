@@ -6,9 +6,9 @@
 	Add	
 
 </a> --}}
- <button class="btn btn-info">
+ {{-- <button class="btn btn-info">
        <a href=" {{ route('students.export_excel')  }}" style="color: white"> Xuất excel</a>
-   </button>
+   </button> --}}
 <table class="table">
 	<tr>
 		<th >Id</th>
@@ -21,7 +21,7 @@
 		<th scope="col">User</th>
 		
 			<th></th>
-			<th></th>
+			{{-- <th></th> --}}
 		
 		
 
@@ -68,14 +68,14 @@
 					{{$students->email}}
 				</td>
 				
-				<td>
+				{{-- <td>
 				<button   class="btn btn-danger btn-sm" > 
 					<i class="fa fa-ban"></i>
 					<a href="{{ route('students.delete',['id' => $students->id]) }}">
 					<span style="color: white">Delete</span>
 				</a></button>
 				
-				</td>
+				</td> --}}
 
 				<td>
 					<button  class="btn btn-primary btn-sm">

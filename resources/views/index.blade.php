@@ -10,7 +10,7 @@
 	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sufee Admin - HTML5 Admin Template</title>
+	<title>Điểm danh sinh viên</title>
 	<meta name="description" content="Sufee Admin - HTML5 Admin Template">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -60,8 +60,8 @@
 							</div>
 						</div>
 						<h4 class="mb-0">
-							<span class="count">{{  $dihoc_phantram  }}</span>%/100%</span>
-							<br>
+							{{-- <span class="count">{{  $dihoc_phantram  }}</span>%/100%</span>
+							<br> --}}
 							<span class="count">{{ $dihoc }}</span>/<span class="count">{{ $all }}</span>
 						</h4>
 						<p class="text-light">Đi học </p>
@@ -88,8 +88,8 @@
 						</div>
 					</div>
 					<h4 class="mb-0">
-						<span class="count">{{  $nghihoc_phantram  }}</span>%/100%</span>
-							<br>
+						{{-- <span class="count">{{  $nghihoc_phantram  }}</span>%/100%</span>
+							<br> --}}
 						<span class="count">{{  $nghihoc  }} </span>/<span class="count">{{ $all }}</span>
 					</h4>
 					<p class="text-light">Nghỉ học</p>
@@ -116,8 +116,8 @@
 					</div>
 				</div>
 				<h4 class="mb-0">
-					<span class="count">{{  $nghihoc_phantram  }}</span>%/100%</span>
-							<br>
+					{{-- <span class="count">{{  $nghihoc_phantram  }}</span>%/100%</span>
+							<br> --}}
 					<span class="count">{{  $muonhoc  }} </span>/<span class="count">{{ $all }}</span>
 				</h4>
 				<p class="text-light">Muộn học</p>
@@ -144,7 +144,7 @@
 				</div>
 			</div>
 			<h4 class="mb-0">
-				<span></span>\
+				<span></span>
 				<br>
 				<span class="count">10468</span>
 			</h4>

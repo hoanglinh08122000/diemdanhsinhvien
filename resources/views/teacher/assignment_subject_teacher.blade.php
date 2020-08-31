@@ -24,8 +24,9 @@
 			<div class="row form-group">
 				<div class="col col-md-3"><label for="select" class=" form-control-label">Môn</label></div>
 				<div class="col-12 col-md-9">
-					<select id="nameid" style="width: 200px" name="check[]" multiple="multiple" class="select2">
+					<select id="nameid" style="width: 200px" name="check[]" multiple="multiple" class="select2" required="">
 						@foreach ($subjects as $subject)
+
 							<option value="{{ $subject->id }}">
 								{{ $subject->name }}
 							</option>}
@@ -62,4 +63,5 @@
 			})
 		});
 	</script>
+
 	@endpush

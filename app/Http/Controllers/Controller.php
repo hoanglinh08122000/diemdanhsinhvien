@@ -33,18 +33,18 @@ class Controller{
 				->join('attendancedetails','students.id','attendancedetails.id_students')
 				->get()
 				->count();
-		$dihoc_phantram=$dihoc/$all*100;
-		$nghihoc_phantram=$nghihoc/$all*100;
-		$muonhoc_phantram=100-$dihoc_phantram-$nghihoc_phantram-1;
-
+		// $dihoc_phantram=$dihoc/$all*100;
+		// $nghihoc_phantram=$nghihoc/$all*100;
+		// // $muonhoc_phantram=100-$dihoc_phantram-$nghihoc_phantram-1;
+		//  $muonhoc_phantram=$muonhoc/$all*100;
 		return view('index',[
 			'dihoc'=> $dihoc,
 			'nghihoc'=> $nghihoc,
 			'muonhoc'=> $muonhoc,
 			'all'=> $all,
-			'dihoc_phantram'=> $dihoc_phantram,
-			'nghihoc_phantram'=> $nghihoc_phantram,
-			'muonhoc_phantram'=> $muonhoc_phantram,
+			// 'dihoc_phantram'=> $dihoc_phantram,
+			// 'nghihoc_phantram'=> $nghihoc_phantram,
+			// 'muonhoc_phantram'=> $muonhoc_phantram,
 
 
 		]);

@@ -40,7 +40,7 @@
 			<div class="row form-group">
 			<div class="col col-md-3"><label for="select" class=" form-control-label">Lớp</label></div>
 				<div class="col-12 col-md-9">
-				<select name="id_class" class="form-control select2" id="select_class">
+				<select name="id_class" class="form-control select2" id="select_class" required="">
 						
 					</select>
 				</div>
@@ -67,7 +67,7 @@
 		<div class="row form-group">
 			<div class="col col-md-3" ><label for="select" class=" form-control-label">   Môn dạy</label></div>
 			<div class="col-12 col-md-9">
-				<select class="form-control" name="id_subject" id="select_subject_teacher" >
+				<select class="form-control" name="id_subject" id="select_subject_teacher" required="">
 					
 				</select>
 			</div>

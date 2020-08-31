@@ -10,7 +10,7 @@
 
 				<div class="row form-group">
 					<div class="col col-md-3"><label for="text-input" class=" form-control-label">Số sinh viên mới </label></div>
-					<div class="col-12 col-md-9"><input type="file" id="text-input" name="excel_student_class" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small>
+					<div class="col-12 col-md-9"><input type="file" id="text-input" name="excel_student_class" placeholder="Text" class="form-control">
 					</div>
 				</div>
 
@@ -42,7 +42,7 @@
 
 				<div class="row form-group">
 					<div class="col col-md-3"><label for="text-input" class=" form-control-label">Nhập số lớp</label></div>
-					<div class="col-12 col-md-9"><input type="number" min="1" id="text-input" name="name" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small>
+					<div class="col-12 col-md-9"><input type="number" min="1" id="text-input" name="name" placeholder="Text" class="form-control">
 					</div>
 				</div>
 				

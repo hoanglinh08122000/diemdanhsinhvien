@@ -29,7 +29,7 @@
 			<div>
 				<a href="{{ route('login_admin') }} " class="select_login">Sign in Admin</a>
 				<a href="{{ route('login_teacher') }}" class="select_login">Sign Teacher</a>
-                <a href="{{ route('login_student') }}" class="select_login">Sign in Student</a>
+                {{-- <a href="{{ route('login_student') }}" class="select_login">Sign in Student</a> --}}
 			</div>
 
 

@@ -114,7 +114,12 @@ class TeacherController extends Controller
         ]);
     }
     public function process_assignment_subject_teacher(Request $rq){
+
+       
         $input = $rq -> all();
+        $id_teacher = $rq -> get('id_teacher');
+       
+        Subject_teacher::where('id_teacher',$id_teacher)->delete();
         foreach ($rq->check as $id_subject) {
         
 

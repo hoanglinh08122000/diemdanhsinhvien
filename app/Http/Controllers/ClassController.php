@@ -20,7 +20,7 @@ class ClassController extends Controller
 {
 	public function index_class(Request $rq) {
 		$search = $rq->search;
-		$array_list = Classs::where('name', 'like', "%$search%")->paginate(10);
+		$array_list = Classs::where('name', 'like', "%$search%")->paginate(7);
 		return view('class.index_class',[
 			'array_list' => $array_list,
 			'search' => $search,
