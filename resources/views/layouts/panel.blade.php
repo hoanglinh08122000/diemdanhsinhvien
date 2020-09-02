@@ -55,7 +55,7 @@
                         <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('class.view_insert_class_under_student') }}">Thêm kèm chia</a></li>
                         <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('class.view_insert_class') }}">Thêm </a></li>
                         <li><i class="fa fa-id-badge"></i><a href="{{ route('class.show_edit') }}">Sửa lớp</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="{{ route('class.assignment_class_subject') }}">Phân lớp</a></li>
+{{--                         <li><i class="fa fa-id-badge"></i><a href="{{ route('class.assignment_class_subject') }}">Phân lớp</a></li> --}}
                     </ul>
 
                 </li>
@@ -98,6 +98,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-view-list"></i>Phân công</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-table"></i><a href="{{ route('assignment.assignment_teacher') }}">Theo giáo viên</a></li>
+                        <li><i class="fa fa-table"></i><a href="{{ route('assignment.view_assignment_teacher') }}">Xem</a></li>
                         {{-- <li><i class="fa fa-table"></i><a href="{{ route('assignment.assignment_class') }}">Theo lớp</a></li> --}}
                         <li><i class="fa fa-table"></i><a href="{{ route('assignment.show') }}">Danh sách dạy</a></li>
                     </ul>

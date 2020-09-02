@@ -45,7 +45,7 @@ class AssignmentController extends Controller
 		// dd($input);
 		Assignment::create($input);	
 
-    	return redirect()->route('assignment.show');
+    	return redirect()->route('assignment.view_assignment_teacher');
 
 	}
 	
@@ -64,6 +64,16 @@ class AssignmentController extends Controller
 		
 	}
 	
+	public function view_assignment_teacher()
+	{
+		$array_classes=Classs::get();
+		$array_disciplines=Discipline::get();
+		return view('assignment.view_assignment_teacher',[
+				'array_classes'=> $array_classes,
+				'array_disciplines'=> $array_disciplines,
+
+			]);
+	}
 
 
 }

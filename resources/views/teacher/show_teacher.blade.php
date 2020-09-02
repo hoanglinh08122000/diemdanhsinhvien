@@ -1,4 +1,6 @@
 @extends('layouts.master')
+@section('titles',"Giáo Viên ")
+	
 @section('content')
 
 {{-- <a href="{{ route('students.view_insert_students') }}">
@@ -59,18 +61,21 @@
 					{{$students->email}}
 				</td>
 				
-				<td>
+				{{-- <td>
 					<a href="{{ route('teacher.delete',['id' => $students->id]) }}">
 						Delete
 					</a>
-				</td>
-
+				</td> --}}
+				
+				
 				<td>
-					<a href="{{ route('teacher.view_update_teacher',['id' => $students->id]) }}">
-						Update
-					</a>
-				</td>
-
+					<button class="btn btn-success" >
+						<a href="{{ route('teacher.view_update_teacher',['id' => $students->id]) }}" style="color: white ">
+							Update
+						</a>	
+					</button>
+						
+					</td>
 			</tr>
 
 			@endforeach

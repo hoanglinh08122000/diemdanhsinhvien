@@ -11,6 +11,7 @@ use App\Models\Subject_teacher;
 use App\Models\Students;
 use App\Models\Listpoints;
 use App\Models\Assignment;
+use App\Models\Teacher;
 use DB;
 use Session;
 
@@ -139,7 +140,9 @@ class AjaxController extends Controller
         $listpoint=Listpoints::where(['id_subject'=>$id_subject ,'id_class'=>$id_class])->get();
         if(count($listpoint)>0)
         {
-            $students=Listpoints::selectRaw("students.id,concat(students.first_name,' ',students.last_name) as name,students.date as birthday,COUNT(status) as dem, if(status=1,'nghi',if(status=2,'muon','di_hoc')) as status")
+            $students=Listpoints::selectRaw("students.id,
+                concat(students.first_name,' ',students.last_name) as name,
+                students.date as birthday,COUNT(status) as dem, if(status=1,'nghi',if(status=2,'muon','di_hoc')) as status")
             ->join('attendancedetails','listpoints.id','=','attendancedetails.id_listpoints')
             ->join('students','students.id','=','attendancedetails.id_students')
             ->groupBy(['status','id_students'])
@@ -206,5 +209,35 @@ class AjaxController extends Controller
         return [$ajax_students,$subject->time];  
         
     }
-    
+    public function view_assignment(Request $rq)
+    {
+        $id_class=$rq->get('id_class');
+        // $id_discipline=Classs::where('id',$id_class)->get('id_discipline');
+       
+        // $subjects=Subject::where('id_discipline',1)
+        //                     ->get();
+
+                            
+        // return $subjects;
+        // $teachers=Teacher::get();
+        // $teachers=Teacher::selectRaw('id, concat(first_name,last_name) as name')->get();
+        // dd($teacher,$subjects);
+        $array=Assignment::where('id_class',$id_class)
+                            ->leftJoin('subject','subject.id','assignmen.id_subject')
+                            ->leftJoin('class','class.id','assignmen.id_class')
+                            ->Join('teacher','teacher.id','assignmen.id_teacher')
+                            ->selectRaw('class.name as lop ,subject.name as mon,concat(teacher.first_name,teacher.last_name) as giaovien')
+                            -> get();
+       return $array;
+       
+       // return [$subjects,$teachers];
+    }
+    public function history_listpoint(Request $rq)
+    {   
+        $id_class=$rq->get('id_class');
+        $array_history=Subject::where('assignmen.id_class',$id_class)
+                        ->join('assignmen','assignmen.id_subject','subject.id')
+                        ->get();
+        return $array_history;
+    }
 }

@@ -137,6 +137,7 @@ route::group(['middleware' => 'CheckLogin'], function () {
 	route::group(["prefix" => "assignment", "as" => "assignment."], function () use ($controller) {
 		route::group(['middleware' => 'CheckAdmin'], function () use ($controller){
 			route::get("assignment_teacher", "$controller@assignment_teacher")->name("assignment_teacher");
+			route::get("view_assignment_teacher", "$controller@view_assignment_teacher")->name("view_assignment_teacher");
 			route::get("show", "$controller@show")->name("show");
 			route::post("process_assignment_teacher", "$controller@process_assignment_teacher")->name("process_assignment_teacher");
 			route::get("assignment_class", "$controller@assignment_class")->name("assignment_class");
@@ -160,6 +161,8 @@ route::group(['middleware' => 'CheckLogin'], function () {
 		route::get("listpoint", "$controller@listpoint")->name("listpoint");
 		route::get("listpoint_students", "$controller@listpoint_students")->name("listpoint_students");
 		route::get("test_class", "$controller@test_class")->name("test_class");
+		route::get("view_assignment", "$controller@view_assignment")->name("view_assignment");
+		route::get("history_listpoint", "$controller@history_listpoint")->name("history_listpoint");
 	});
 	
 	// diem danh
@@ -169,6 +172,10 @@ route::group(['middleware' => 'CheckLogin'], function () {
 		route::get("view_listpoints", "$controller@view_listpoints")->name("view_listpoints");
 		// route::post("process_listpoint", "$controller@process_listpoint")->name("process_listpoint");
 		route::post("process_post", "$controller@process_post")->name("process_post");
+		route::get("history", "$controller@history")->name("history");
+		route::post("process_history", "$controller@process_history")->name("process_history");
+		route::post("view_history", "$controller@view_history")->name("view_history");
+		route::post("view_listpoints_history", "$controller@view_listpoints_history")->name("view_listpoints_history");
 		
 	});
 

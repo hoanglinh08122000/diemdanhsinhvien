@@ -10,7 +10,7 @@
 	</div>
 @endif
 <button type="submit" class="btn btn-success">
-	<a href="{{ route('listpoints.history') }}" style="color: white">Lịch sử điểm danh</a>
+	<a href="{{ route('listpoints.view_history') }}" style="color: white">Xem điểm danh</a>
 </button>
 <br>
 <br>
@@ -22,7 +22,7 @@
 				<div class="col col-md-3"><label for="select" class=" form-control-label">Khóa</label></div>
 				<div class="col-12 col-md-9">
 					<select  class="form-control" id="select_course">
-						<option disabled selected> Chọn khóa</option>
+						<option disabled selected> Chọn khóa</option>}
 						@foreach ($courses  as $course)
 						<option value="{{ $course->id }}">
 							{{ $course->name }}

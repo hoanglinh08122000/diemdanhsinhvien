@@ -18,23 +18,27 @@
 				{{$class->id}}
 			</td>
 			<td>
-				{{$class->full_name}} 
+				{{$class->name}} 
 			</td>
 			
 			<td>
 				{{$class->discipline->name}} 
 			</td>
 			
-			<td>
+			{{-- <td>
 				<a href="{{ route('class.delete',['id' => $class->id]) }}">
 					Delete
 				</a>
 			</td>
-
+ --}}
+ 			
 			<td>
-				<a href="{{ route('class.view_update_class',['id' => $class->id]) }}">
-					Update
-				</a>
+				<button class="btn btn-success">
+	 				<a href="{{ route('class.view_update_class',['id' => $class->id]) }}" style="color: white">
+						Update
+					</a>
+ 				</button>
+				
 			</td>
 
 		</tr>
